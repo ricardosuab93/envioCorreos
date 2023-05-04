@@ -7,10 +7,10 @@ from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email import encoders
 
-smtp_server = "mail.nordigesa.com"
-smtp_port = 25  # Por ejemplo, 587 para SMTP de Gmail
-email_address = "sigeco@nordigesa.com"
-password = "nordigesa123*"
+smtp_server = "smtp.gmail.com"
+smtp_port = 587  # Por ejemplo, 587 para SMTP de Gmail
+email_address = "correo"
+password = "password"
 
 def enviar_correo(destinatario, asunto, cuerpo, adjuntos):
 
@@ -55,7 +55,7 @@ else:
         nombre_pdf = os.path.splitext(os.path.basename(pdf))[0]
 
         destinatario = "correo" #aqui pones el correo del distanatario
-        asunto = f"NORDIGESA - Envio automatico de comprobante electronico: {nombre_pdf}"
+        asunto = f"asunto{nombre_pdf}"
         cuerpo = f"Estimado cliente, se adjunta documento electrónico {nombre_pdf}, en formato PDF Y XML"
 
         adjuntos = [pdf, xml]
