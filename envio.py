@@ -39,7 +39,8 @@ def enviar_correo(destinatario, asunto, cuerpo, adjuntos):
     except Exception as e:
         print(f"No se pudo enviar el correo a {destinatario}. Error: {str(e)}")
 
-carpeta_archivos = "carpeta" #carpeta donde tienes las facturas para enviar 
+destinatario = input("Ingresa el correo del cliente destinatario: ") #aqui pones el correo del distanatario
+carpeta_archivos = input("Ingresa la carpeta contenedora de las facturas: ") #carpeta donde tienes las facturas para enviar 
 archivos_pdf = glob.glob(carpeta_archivos + "/*.pdf")
 archivos_xml = glob.glob(carpeta_archivos + "/*.xml")
 
@@ -54,7 +55,6 @@ else:
 
         nombre_pdf = os.path.splitext(os.path.basename(pdf))[0]
 
-        destinatario = "correo" #aqui pones el correo del distanatario
         asunto = f"asunto{nombre_pdf}"
         cuerpo = f"Estimado cliente, se adjunta documento electrónico {nombre_pdf}, en formato PDF Y XML"
 
